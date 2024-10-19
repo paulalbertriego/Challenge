@@ -9,7 +9,7 @@ Robot::Robot()
 
 bool Robot::canPlace(int t_x, int t_y)
 {
-	return t_x <= BOARD_WIDTH && t_y <= BOARD_HEIGHT;
+	return t_x < BOARD_WIDTH && t_y < BOARD_HEIGHT;
 }
 
 bool Robot::canMove()
@@ -19,9 +19,9 @@ bool Robot::canMove()
 	switch (m_FacingDirection)
 	{
 		case Direction::NORTH:
-			return ++coordy <= BOARD_HEIGHT;
+			return ++coordy < BOARD_HEIGHT;
 		case Direction::EAST:
-			return ++coordx <= BOARD_WIDTH;
+			return ++coordx < BOARD_WIDTH;
 		case Direction::SOUTH:
 			return --coordy >= BOARD_Y_ORIGIN;
 		case Direction::WEST:
