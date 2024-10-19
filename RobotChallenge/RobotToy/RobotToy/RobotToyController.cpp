@@ -121,7 +121,7 @@ void RobotToyController::start()
             }
             catch (...)
             {
-                displayError("Incorrect MOVE command");
+                displayError("Incorrect REPORT command");
                 continue;
             }
         }
