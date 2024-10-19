@@ -14,11 +14,13 @@ private:
 	string m_BotName;
 	string m_RobotData;
 	Board m_Board;
+	void display();
 	void displayMenu();
 	void displayRobotData();
 	vector<string> splitString(const string&, char);
-	void displayError(const string&);
-	void ExecutePlace(const string&);
+	void handleError(const string&);
+	void executeCommand(const vector<string>&);
+	void executePlace(const string&);
 	void executeRotate(const string&);
 	void executeMove();
 	string executeReport();

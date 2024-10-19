@@ -8,6 +8,14 @@ string COMMAND_RIGHT = "RIGHT";
 string COMMAND_REPORT = "REPORT";
 string COMMAND_QUIT = "QUIT";
 
+void RobotToyController::display()
+{
+    cout << "Accepted Commands" << endl;
+    displayRobotData();
+    cout << "----------------------" << endl;
+    displayMenu();
+}
+
 void RobotToyController::displayMenu()
 {
     cout << "INPUT COMMAND" << endl;
@@ -55,85 +63,31 @@ void RobotToyController::start()
     while (1)
     {
         system("cls");
-        cout << "Accepted Commands" << endl;
-        displayRobotData();
-        cout << "----------------------" << endl;
-        displayMenu();
+        display();
         cout << "Enter Command: " ;
         getline(cin, commandInput);
 
         vector<string> commandString;
         commandString = splitString(commandInput, ' ');
 
-        if (commandString.size() < 1)
+        if (commandString.empty())
         {
-            displayError("Command not found");
+            handleError("Command not found");
             continue;
         }
 
-        if (commandString[0] == COMMAND_PLACE_KEYWORD)
+        try
         {
-            try
+            executeCommand(commandString);
+            if (commandInput != COMMAND_REPORT)
             {
-                if (commandString.size() != 2)
-                {
-                    throw exception("InvalidPlaceCommand");
-                }
-
-                ExecutePlace(commandString[1]);
-            }
-            catch (...)
-            {
-                displayError("Incorrect PLACE command");
-                continue;
+                m_RobotData += commandInput + "\n";
             }
         }
-        else if (commandString[0] == COMMAND_MOVE)
+        catch (...)
         {
-            try
-            {
-                executeMove();
-            }
-            catch (...)
-            {
-                displayError("Incorrect MOVE command");
-                continue;
-            }
+            handleError("Incorrect Command");
         }
-        else if (commandString[0] == COMMAND_LEFT || commandString[0] == COMMAND_RIGHT)
-        {
-            try
-            {
-                executeRotate(commandString[0]);
-            }
-            catch (...)
-            {
-                displayError("Incorrect ROTATE command");
-                continue;
-            }
-        }
-        else if (commandString[0] == COMMAND_REPORT)
-        {
-            try
-            {
-                m_RobotData += executeReport() + "\n";
-                continue;
-            }
-            catch (...)
-            {
-                displayError("Incorrect REPORT command");
-                continue;
-            }
-        }
-        else if(commandString[0] == COMMAND_QUIT)
-        {
-            return;
-        }
-        else
-        {
-            displayError("Command not found");
-        }
-        m_RobotData += commandInput + "\n";
     }
 }
 
@@ -184,7 +138,7 @@ string RobotToyController::executeReport()
     }
 }
 
-void RobotToyController::ExecutePlace(const string& t_placeCommand)
+void RobotToyController::executePlace(const string& t_placeCommand)
 {
     vector<string> placeCommand = splitString(t_placeCommand, ',');
 
@@ -220,9 +174,41 @@ void RobotToyController::ExecutePlace(const string& t_placeCommand)
     m_Board.GetBot(m_BotName)->place(coordx, coordy, facingDirection);
 }
 
-void RobotToyController::displayError(const string& t_error)
+void RobotToyController::handleError(const string& t_error)
 {
     cerr << t_error << endl;
-    cout << "Press any key to continue" << endl;
-    cin.get();
+    system("pause");
+}
+
+void RobotToyController::executeCommand(const vector<string>& t_command)
+{
+    if (t_command[0] == COMMAND_PLACE_KEYWORD)
+    {
+        if (t_command.size() != 2)
+        {
+            throw exception("InvalidPlaceCommand");
+        }
+
+        executePlace(t_command[1]);
+    }
+    else if (t_command[0] == COMMAND_MOVE)
+    {
+        executeMove();
+    }
+    else if (t_command[0] == COMMAND_LEFT || t_command[0] == COMMAND_RIGHT)
+    {
+        executeRotate(t_command[0]);
+    }
+    else if (t_command[0] == COMMAND_REPORT)
+    {
+        m_RobotData += executeReport() + "\n";
+    }
+    else if (t_command[0] == COMMAND_QUIT)
+    {
+        exit(0);
+    }
+    else
+    {
+        throw exception("CommandNotFound");
+    }
 }
