@@ -30,18 +30,6 @@ bool Robot::canMove()
 	return false;
 }
 
-string Robot::getDirectionString()
-{
-	switch (m_FacingDirection)
-	{
-		case Direction::NORTH: return "NORTH";
-		case Direction::EAST: return "EAST";
-		case Direction::SOUTH: return "SOUTH";
-		case Direction::WEST: return "WEST";
-		default: return string();
-	}
-}
-
 void Robot::place(int t_x, int t_y, Direction t_direction)
 {
 	if (!canPlace(t_x, t_y))
@@ -58,10 +46,8 @@ void Robot::rotate(int t_rotateDirection)
 	if (!m_isPlaced)
 		throw exception("Bot not found");
 
-	Navigator navigator(m_FacingDirection, t_rotateDirection);
-	navigator.rotate();
-	m_FacingDirection = navigator.getDirection();
-
+	Navigator navigator;
+	m_FacingDirection = navigator.rotate(m_FacingDirection, t_rotateDirection);
 }
 
 void Robot::rotateLeft()
@@ -78,7 +64,7 @@ void Robot::move()
 		throw exception("Bot not found");
 
 	if (!canMove())
-		throw std::out_of_range("Position out of bounds");
+		throw out_of_range("Position out of bounds");
 
 	switch (m_FacingDirection)
 	{
@@ -101,10 +87,12 @@ string Robot::report()
 	if (!m_isPlaced)
 		throw exception("Bot not found");
 
+	Navigator nagivator;
+
 	return "Output: " + 
 		to_string(m_CoordinateX) +
 		", " +
 		to_string(m_CoordinateY) +
 		", " +
-		getDirectionString();
+		nagivator.toString(m_FacingDirection);
 }

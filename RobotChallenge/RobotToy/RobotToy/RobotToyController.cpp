@@ -147,31 +147,23 @@ void RobotToyController::executePlace(const string& t_placeCommand)
         throw exception("InvalidPlaceCommand");
     }
 
-    Direction facingDirection;
-    if (placeCommand[2] == "NORTH")
-        facingDirection = Direction::NORTH;
-    else if (placeCommand[2] == "EAST")
-        facingDirection = Direction::EAST;
-    else if (placeCommand[2] == "SOUTH")
-        facingDirection = Direction::SOUTH;
-    else if (placeCommand[2] == "WEST")
-        facingDirection = Direction::WEST;
-    else
-    {
-        throw exception("InvalidPlaceCommand");
-    }
-    int coordx;
-    int coordy;
     try
     {
+        int coordx;
+        int coordy;
         coordx = stoi(placeCommand[0]);
         coordy = stoi(placeCommand[1]);
+
+        Navigator navigator;
+        Direction facingDirection;
+        facingDirection = navigator.stringToDirection(placeCommand[2]);
+
+        m_Board.GetBot(m_BotName)->place(coordx, coordy, facingDirection);
     }
-    catch (...)
+    catch(...)
     {
         throw exception("InvalidPlaceCommand");
     }
-    m_Board.GetBot(m_BotName)->place(coordx, coordy, facingDirection);
 }
 
 void RobotToyController::handleError(const string& t_error)

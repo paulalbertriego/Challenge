@@ -6,6 +6,7 @@
 #include <vector>
 #include "Robot.h"
 #include "Board.h"
+#include "Navigator.h"
 
 using namespace std;
 class RobotToyController

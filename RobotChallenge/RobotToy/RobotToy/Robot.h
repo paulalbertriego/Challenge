@@ -14,7 +14,6 @@ private:
 	bool m_isPlaced;
 	bool canPlace(int, int);
 	bool canMove();
-	string getDirectionString();
 	void rotate(int);
 public:
 	Robot();
