@@ -23,8 +23,8 @@ private:
 	{
 		{ 0, "NORTH", Direction::NORTH },
 		{ 1, "EAST", Direction::EAST},
-		{ 2, "EAST", Direction::SOUTH},
-		{ 3, "EAST", Direction::WEST }
+		{ 2, "SOUTH", Direction::SOUTH},
+		{ 3, "WEST", Direction::WEST }
 	};
 public:
 	Direction rotate(Direction, int);
