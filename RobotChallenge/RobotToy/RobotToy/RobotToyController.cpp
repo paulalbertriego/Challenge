@@ -32,17 +32,6 @@ void RobotToyController::displayRobotData()
     cout << m_RobotData << endl;
 }
 
-vector<string> RobotToyController::splitString(const string& t_words, char t_delim)
-{
-    istringstream  stream(t_words);
-    string item;
-    vector<string> elem;
-    while (getline(stream, item, t_delim))
-        elem.push_back(item);
-
-    return elem;
-}
-
 RobotToyController::RobotToyController()
     : m_BotName(string()), m_RobotData(string())
 {
@@ -68,7 +57,7 @@ void RobotToyController::start()
         getline(cin, commandInput);
 
         vector<string> commandString;
-        commandString = splitString(commandInput, ' ');
+        commandString = StringHelper::split(commandInput, ' ');
 
         if (commandString.empty())
         {
@@ -140,7 +129,7 @@ string RobotToyController::executeReport()
 
 void RobotToyController::executePlace(const string& t_placeCommand)
 {
-    vector<string> placeCommand = splitString(t_placeCommand, ',');
+    vector<string> placeCommand = StringHelper::split(t_placeCommand, ',');
 
     if (placeCommand.size() != 3)
     {

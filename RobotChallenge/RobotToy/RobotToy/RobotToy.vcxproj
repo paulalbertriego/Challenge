@@ -138,6 +138,7 @@
     <ClCompile Include="Navigator.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="RobotToy.cpp" />
+    <ClCompile Include="StringHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="RobotToyController.h" />
     <ClInclude Include="Navigator.h" />
     <ClInclude Include="Robot.h" />
+    <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

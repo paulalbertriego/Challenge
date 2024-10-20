@@ -7,6 +7,7 @@
 #include "Robot.h"
 #include "Board.h"
 #include "Navigator.h"
+#include "StringHelper.h"
 
 using namespace std;
 class RobotToyController
@@ -18,7 +19,6 @@ private:
 	void display();
 	void displayMenu();
 	void displayRobotData();
-	vector<string> splitString(const string&, char);
 	void handleError(const string&);
 	void executeCommand(const vector<string>&);
 	void executePlace(const string&);
