@@ -1,13 +1,10 @@
 #pragma once
-#include <algorithm>
-#include <string>
-#include <vector>
-#include "Constants.h"
+#include "INavigator.h"
 
 
 using namespace std;
 
-class Navigator
+class Navigator : public INavigator
 {
 private:
 	struct DirectionData
@@ -27,9 +24,9 @@ private:
 		{ 3, "WEST", Direction::WEST }
 	};
 public:
-	Direction rotate(Direction, int);
-	string toString(Direction) const;
-	int toInt(Direction) const;
-	Direction stringToDirection(const string&);
-	Direction intToDirection(int t_intValue) const;
+	Direction rotate(Direction, int) override;
+	string toString(Direction) const override;
+	int toInt(Direction) const override;
+	Direction stringToDirection(const string&) override;
+	Direction intToDirection(int t_intValue) const override;
 };

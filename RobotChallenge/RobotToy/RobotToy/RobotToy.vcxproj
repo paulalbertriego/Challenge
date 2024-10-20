@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="INavigator.h" />
     <ClInclude Include="IRobot.h" />
     <ClInclude Include="RobotToyController.h" />
     <ClInclude Include="Navigator.h" />

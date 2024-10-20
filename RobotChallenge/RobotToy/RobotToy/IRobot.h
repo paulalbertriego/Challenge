@@ -4,6 +4,8 @@
 #include "Navigator.h"
 #include "Constants.h"
 
+using namespace std;
+
 class IRobot
 {
 public:
