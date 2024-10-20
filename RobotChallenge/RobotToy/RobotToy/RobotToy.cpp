@@ -8,6 +8,4 @@ int main()
     RobotToyController controller;
     controller.addBot("robotroll");
     controller.start();
-
-    std::cout << "Hello World!\n";
 }
