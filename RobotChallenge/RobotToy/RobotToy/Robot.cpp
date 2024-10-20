@@ -9,7 +9,8 @@ Robot::Robot()
 
 bool Robot::canPlace(int t_x, int t_y)
 {
-	return t_x < BOARD_WIDTH && t_y < BOARD_HEIGHT;
+	return (t_x >= BOARD_X_ORIGIN && t_x < BOARD_WIDTH)
+		&& (t_y >=  BOARD_Y_ORIGIN && t_y < BOARD_HEIGHT);
 }
 
 bool Robot::canMove()
