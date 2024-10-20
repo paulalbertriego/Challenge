@@ -134,7 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
-    <ClCompile Include="RobotToyController.cpp" />
+    <ClCompile Include="RobotController.cpp" />
     <ClCompile Include="Navigator.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="RobotToy.cpp" />
@@ -145,7 +145,8 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="INavigator.h" />
     <ClInclude Include="IRobot.h" />
-    <ClInclude Include="RobotToyController.h" />
+    <ClInclude Include="IRobotController.h" />
+    <ClInclude Include="RobotController.h" />
     <ClInclude Include="Navigator.h" />
     <ClInclude Include="Robot.h" />
     <ClInclude Include="StringHelper.h" />
