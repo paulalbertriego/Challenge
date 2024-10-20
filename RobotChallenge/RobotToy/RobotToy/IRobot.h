@@ -16,4 +16,8 @@ public:
 	virtual void rotateRight() = 0;
 	virtual void move() = 0;
 	virtual string report() = 0;
+	virtual int getCoordinateX() const = 0;
+	virtual int getCoordinateY() const = 0;
+	virtual Direction getFacingDirection() const = 0;
+	virtual bool getIsPlaced() const = 0;
 };

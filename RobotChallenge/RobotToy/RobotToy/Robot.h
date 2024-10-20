@@ -19,4 +19,8 @@ public:
 	void rotateRight() override;
 	void move() override;
 	string report() override;
+	int getCoordinateX() const override;
+	int getCoordinateY() const override;
+	Direction getFacingDirection() const override;
+	bool getIsPlaced() const override;
 };

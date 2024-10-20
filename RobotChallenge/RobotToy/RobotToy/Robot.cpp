@@ -97,3 +97,21 @@ string Robot::report()
 		", " +
 		nagivator.toString(m_FacingDirection);
 }
+
+int Robot::getCoordinateX() const
+{
+	return m_CoordinateX;
+}
+int Robot::getCoordinateY() const
+{
+	return m_CoordinateY;
+}
+Direction Robot::getFacingDirection() const
+{
+	return m_FacingDirection;
+}
+bool Robot::getIsPlaced() const
+{
+	return m_isPlaced;
+}
+
