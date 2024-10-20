@@ -1,11 +1,8 @@
 #pragma once
-#include <map>
-#include <string>
-#include "Navigator.h"
-#include "Constants.h"
+#include "IRobot.h"
 
 using namespace std;
-class Robot
+class Robot : public IRobot
 {
 private:
 	int m_CoordinateX;
@@ -17,9 +14,9 @@ private:
 	void rotate(int);
 public:
 	Robot();
-	void place(int, int, Direction);
-	void rotateLeft();
-	void rotateRight();
-	void move();
-	string report();
+	void place(int, int, Direction) override;
+	void rotateLeft() override;
+	void rotateRight() override;
+	void move() override;
+	string report() override;
 };

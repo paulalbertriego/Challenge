@@ -6,8 +6,8 @@
 class Board
 {
 private:
-	map<string, unique_ptr<Robot>> robots;
+	map<string, unique_ptr<IRobot>> robots;
 public:
-	void addBot(const string&, unique_ptr<Robot>);
-	unique_ptr<Robot>& GetBot(const string&);
+	void addBot(const string&, unique_ptr<IRobot>);
+	unique_ptr<IRobot>& GetBot(const string&);
 };
