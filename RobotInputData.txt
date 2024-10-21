@@ -1,0 +1,52 @@
+MOVE
+RIGHT <--- Expected result: Not accepted
+LEFT <--- Expected result: Not accepted
+REPORT <--- Expected result: Not accepted
+ASDSAD <--- Expected result: Not accepted
+" " blank input <--- Expected result: Not accepted
+123 <--- Expected result: Not accepted
+! <--- Expected result: Not accepted
+PLACE <--- Expected result: Not accepted
+PLACE 1 <--- Expected result: Not accepted
+PLACE 1,1 <--- Expected result: Not accepted
+PLACE 1,0,a <--- Expected result: Not accepted
+PLACE 0,0,SOUTH
+MOVE <--- Expected result: Not accepted
+LEFT
+MOVE
+MOVE
+MOVE
+MOVE 
+REPORT <-- Expected display: Output: 4,0,EAST
+MOVE <--- Expected result: Not accepted
+LEFT
+LEFT 
+LEFT
+REPORT <-- Expected display: Output: 4,0,SOUTH
+RIGHT
+REPORT <-- Expected display: Output: 4,0,WEST
+RIGHT
+RIGHT
+REPORT <-- Expected display: Output: 4,0,EAST
+RIGHT
+RIGHT
+RIGHT
+REPORT <-- Expected display: Output: 4,0,NORTH
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE <--- Expected result: Not accepted
+REPORT <--- Expected display: Output: 4,4,NORTH
+RIGHT
+RIGHT
+REPORT <-- Expected display: Output: 4,4,SOUTH
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE <--- Expected result: Not accepted
+REPORT <-- Expected display: Output: 4,0,SOUTH
+PLACE 2,3,WEST
+MOVE
+REPORT <-- Expected display: Output: 1,3,WEST
