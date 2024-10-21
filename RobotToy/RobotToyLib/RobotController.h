@@ -1,5 +1,9 @@
 #pragma once
 #include "IRobotController.h"
+#include "Board.h"
+#include "Constants.h"
+#include "Robot.h"
+#include "StringHelper.h"
 
 using namespace std;
 class RobotController : public IRobotController

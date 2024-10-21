@@ -1,13 +1,7 @@
 #pragma once
-#include <memory>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include "Robot.h"
-#include "Board.h"
+#include "pch.h"
+#include "Constants.h"
 #include "Navigator.h"
-#include "StringHelper.h"
 
 class IRobotController
 {

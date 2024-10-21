@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "RobotController.h"
 
 string COMMAND_PLACE_KEYWORD = "PLACE";

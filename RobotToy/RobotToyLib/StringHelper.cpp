@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "StringHelper.h"
 
 vector<string> StringHelper::split(const string& t_words, char t_delim)
